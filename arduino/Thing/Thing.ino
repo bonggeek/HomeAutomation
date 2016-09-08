@@ -18,8 +18,9 @@ void setup()
     Serial.begin(115200);
     
     Serial.println("Demo2 starting");
+    wifi.eAT();
     
-    bool res = wifi.setup();
+    /*bool res = wifi.setup();
 
     delay(1000); 
     //connect to the wifi 
@@ -49,6 +50,7 @@ void setup()
     
     //set the single connection mode 
     softSerial.println("AT+CIPMUX=0");
+    */
 }
 
 void loop()

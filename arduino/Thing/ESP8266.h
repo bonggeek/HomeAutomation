@@ -4,6 +4,7 @@
 #include "Arduino.h"
 #include <SoftwareSerial.h>
 #include "WifiConfig.h"
+const int DEBUG=1;
 
 class ESP8266 {
 public:
@@ -13,7 +14,7 @@ public:
 
     String getVersion();
     bool restart(void);
-private:
+//private:
     void empty();
     String recvString(String target, uint32_t timeout = 1000);
     String recvString(String target1, String target2, uint32_t timeout = 1000);

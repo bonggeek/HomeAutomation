@@ -57,8 +57,17 @@ String ESP8266::getVersion()
 
 void ESP8266::empty()
 {
-    while(m_pSerial->available() > 0)
-        m_pSerial->read();
+    if(DEBUG) Serial.println("empty");
+    String res = "";
+    while(m_pSerial->available())
+    {
+        
+        res += (char)m_pSerial->read();
+        if(DEBUG)
+        {
+            Serial.print(data, DEC);
+        }
+    }
 }
 
 
@@ -131,7 +140,12 @@ bool ESP8266::recvFind(String target, uint32_t timeout)
 bool ESP8266::eAT(void)
 {
     empty();
-    m_pSerial->println("AT");
+    Serial.println("AT");
+    delay(1000);
+    if(DEBUG)
+    {
+        empty();
+    }
     return recvFind("OK");
 }
 
